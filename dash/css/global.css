@@ -1,0 +1,471 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   VARIÁVEIS
+========================================== */
+
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --primary-light: #eef2ff;
+
+    --background: #f5f6fa;
+    --white: #ffffff;
+
+    --text: #1f2937;
+    --text-light: #6b7280;
+
+    --border: #e5e7eb;
+
+    --success: #16a34a;
+    --warning: #d97706;
+    --danger: #dc2626;
+
+    --sidebar-width: 250px;
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+}
+
+
+/* ==========================================
+   ESTRUTURA PRINCIPAL
+========================================== */
+
+.dashboard {
+    display: flex;
+
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar {
+    width: var(--sidebar-width);
+
+    min-height: 100vh;
+
+    background: #111827;
+
+    border-right:
+        1px solid #1f2937;
+
+    display: flex;
+
+    flex-direction: column;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo {
+    height: 75px;
+
+    padding: 0 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-bottom:
+        1px solid #374151;
+}
+
+.logo i {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--primary);
+
+    color: white;
+
+    border-radius: 9px;
+
+    font-size: 17px;
+}
+
+.logo span {
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #f8fafc;
+}
+
+
+/* ==========================================
+   MENU
+========================================== */
+
+.menu {
+    padding: 20px 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.menu-item {
+    height: 46px;
+
+    padding: 0 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    text-decoration: none;
+
+    color: #cbd5e1;
+
+    border-radius: 8px;
+
+    transition: 0.2s;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+.menu-item i {
+    width: 20px;
+
+    text-align: center;
+
+    font-size: 16px;
+}
+
+.menu-item:hover {
+    background: #1f2937;
+
+    color: #ffffff;
+}
+
+:root[data-theme="dark"] {
+    --background: #0f172a;
+    --white: #111827;
+    --text: #f8fafc;
+    --text-light: #94a3b8;
+    --border: #334155;
+    --primary-light: #27235e;
+}
+
+:root[data-sidebar="compact"] .sidebar { width: 70px; }
+:root[data-sidebar="compact"] .sidebar .logo span,
+:root[data-sidebar="compact"] .sidebar .menu-item span { display: none; }
+:root[data-sidebar="compact"] .sidebar .logo,
+:root[data-sidebar="compact"] .sidebar .menu-item { justify-content: center; padding-left: 0; padding-right: 0; }
+:root[data-sidebar="compact"] .main-content { margin-left: 70px; width: calc(100% - 70px); }
+
+@keyframes page-enter {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-item.active {
+    background: #312e81;
+
+    color: #ffffff;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   RODAPÉ DA SIDEBAR
+========================================== */
+
+.sidebar-footer {
+    margin-top: auto;
+
+    padding: 15px 12px;
+
+    border-top:
+        1px solid #374151;
+}
+
+
+/* ==========================================
+   CONTEÚDO PRINCIPAL
+========================================== */
+
+.main-content {
+    width: 100%;
+
+    margin-left:
+        var(--sidebar-width);
+
+    padding: 30px;
+
+    animation: page-enter .22s ease-out both;
+}
+
+
+/* ==========================================
+   CABEÇALHO DAS PÁGINAS
+========================================== */
+
+.page-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 28px;
+
+    margin-bottom: 6px;
+}
+
+.page-header p {
+    color: var(--text-light);
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   BOTÃO PRINCIPAL
+========================================== */
+
+.primary-button {
+    height: 42px;
+
+    padding: 0 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(--primary);
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.primary-button:hover {
+    background: var(--primary-hover);
+
+    transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   BOTÃO SECUNDÁRIO
+========================================== */
+
+.secondary-button {
+    height: 42px;
+
+    padding: 0 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: 0.2s;
+}
+
+.secondary-button:hover {
+    background: #f9fafb;
+}
+
+:root[data-theme="dark"] .secondary-button {
+    background: #1e293b;
+    border-color: #475569;
+    color: #e2e8f0;
+}
+
+:root[data-theme="dark"] .secondary-button:hover {
+    background: #334155;
+    border-color: #64748b;
+}
+
+
+/* ==========================================
+   CARD PADRÃO
+========================================== */
+
+.card {
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 20px;
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.status.andamento {
+    background: #fff7ed;
+
+    color: var(--warning);
+}
+
+.status.pendente {
+    background: #fef2f2;
+
+    color: var(--danger);
+}
+
+.status.concluido {
+    background: #f0fdf4;
+
+    color: var(--success);
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar .logo span,
+    .sidebar .menu-item span {
+        display: none;
+    }
+
+    .logo {
+        padding: 0;
+
+        justify-content: center;
+    }
+
+    .menu-item {
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .sidebar-footer {
+        padding: 15px 8px;
+    }
+
+    .main-content {
+        margin-left: 70px;
+
+        width: calc(100% - 70px);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+
+        padding: 20px 15px;
+    }
+
+    .page-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}

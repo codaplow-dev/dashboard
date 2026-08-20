@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuários | Processos</title>
+  <link rel="stylesheet" href="css/global.css"><link rel="stylesheet" href="css/usuarios.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body><div class="dashboard">
+  <aside class="sidebar"><div class="logo"><i class="fa-solid fa-layer-group"></i><span>Usuários</span></div>
+    <nav class="menu"><a href="index.html" class="menu-item"><i class="fa-solid fa-chart-line"></i><span>Dashboard</span></a><a href="processos.html" class="menu-item"><i class="fa-solid fa-folder"></i><span>Processos</span></a><a href="usuarios.html" class="menu-item active"><i class="fa-solid fa-users"></i><span>Usuários</span></a><a href="setores.html" class="menu-item"><i class="fa-solid fa-building"></i><span>Setores</span></a><a href="relatorios.html" class="menu-item"><i class="fa-solid fa-chart-pie"></i><span>Relatórios</span></a></nav>
+    <div class="sidebar-footer"><a href="configuracoes.html" class="menu-item"><i class="fa-solid fa-gear"></i><span>Configurações</span></a></div>
+  </aside>
+  <main class="main-content"><header class="page-header"><div><h1>Usuários</h1><p>Gerencie os acessos e permissões do sistema.</p></div><button id="newUser" class="primary-button"><i class="fa-solid fa-plus"></i>Novo usuário</button></header>
+    <section class="user-stats"><article><span class="stat-icon indigo"><i class="fa-solid fa-users"></i></span><div><small>Total de usuários</small><strong id="totalUsers">0</strong></div></article><article><span class="stat-icon green"><i class="fa-solid fa-user-check"></i></span><div><small>Usuários ativos</small><strong id="activeUsers">0</strong></div></article><article><span class="stat-icon orange"><i class="fa-solid fa-user-shield"></i></span><div><small>Administradores</small><strong id="adminUsers">0</strong></div></article></section>
+    <section class="content-card"><div class="toolbar"><div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="userSearch" placeholder="Buscar por nome ou e-mail..."></div><select id="roleFilter"><option value="todos">Todos os perfis</option><option value="Administrador">Administrador</option><option value="Analista">Analista</option><option value="Operador">Operador</option></select></div><div id="userList" class="user-list"></div></section>
+  </main>
+</div><script src="js/global.js"></script><script src="js/usuarios.js"></script></body></html>
