@@ -1,7 +1,69 @@
 const users = [
-  {name:"Koda Silva",email:"koda@processos.com",role:"Administrador",initials:"KS"},{name:"Ana Silva",email:"ana.silva@processos.com",role:"Analista",initials:"AS"},{name:"Carlos Souza",email:"carlos.souza@processos.com",role:"Operador",initials:"CS"},{name:"Marcos Lima",email:"marcos.lima@processos.com",role:"Analista",initials:"ML"},{name:"Fernanda Alves",email:"fernanda.alves@processos.com",role:"Operador",initials:"FA"}
+  {
+    name: "Koda Silva",
+    email: "koda@processos.com",
+    role: "Administrador",
+    initials: "KS",
+  },
+  {
+    name: "Ana Silva",
+    email: "ana.silva@processos.com",
+    role: "Analista",
+    initials: "AS",
+  },
+  {
+    name: "Carlos Souza",
+    email: "carlos.souza@processos.com",
+    role: "Operador",
+    initials: "CS",
+  },
+  {
+    name: "Marcos Lima",
+    email: "marcos.lima@processos.com",
+    role: "Analista",
+    initials: "ML",
+  },
+  {
+    name: "Fernanda Alves",
+    email: "fernanda.alves@processos.com",
+    role: "Operador",
+    initials: "FA",
+  },
 ];
-const userList=document.querySelector('#userList'), userSearch=document.querySelector('#userSearch'), roleFilter=document.querySelector('#roleFilter');
-function renderUsers(list=users){userList.innerHTML=list.length?list.map(user=>`<article class="user-row"><div class="user-person"><span class="avatar">${user.initials}</span><div><strong>${user.name}</strong><small>${user.email}</small></div></div><div class="user-meta"><small>Perfil de acesso</small><span class="role">${user.role}</span></div><div class="user-meta"><small>Último acesso</small><strong>Hoje, 09:42</strong></div><span class="account-status">Ativo</span></article>`).join(''):'<p class="empty">Nenhum usuário encontrado.</p>'}
-function filterUsers(){const term=userSearch.value.toLowerCase().trim(), role=roleFilter.value;renderUsers(users.filter(u=>(u.name+' '+u.email).toLowerCase().includes(term)&&(role==='todos'||u.role===role)))}
-document.querySelector('#totalUsers').textContent=users.length;document.querySelector('#activeUsers').textContent=users.length;document.querySelector('#adminUsers').textContent=users.filter(u=>u.role==='Administrador').length;userSearch.addEventListener('input',filterUsers);roleFilter.addEventListener('change',filterUsers);document.querySelector('#newUser').addEventListener('click',()=>alert('O cadastro de usuário será adicionado na próxima etapa.'));renderUsers();
+const userList = document.querySelector("#userList"),
+  userSearch = document.querySelector("#userSearch"),
+  roleFilter = document.querySelector("#roleFilter");
+function renderUsers(list = users) {
+  userList.innerHTML = list.length
+    ? list
+        .map(
+          (user) =>
+            `<article class="user-row"><div class="user-person"><span class="avatar">${user.initials}</span><div><strong>${user.name}</strong><small>${user.email}</small></div></div><div class="user-meta"><small>Perfil de acesso</small><span class="role">${user.role}</span></div><div class="user-meta"><small>Último acesso</small><strong>Hoje, 09:42</strong></div><span class="account-status">Ativo</span></article>`,
+        )
+        .join("")
+    : '<p class="empty">Nenhum usuário encontrado.</p>';
+}
+function filterUsers() {
+  const term = userSearch.value.toLowerCase().trim(),
+    role = roleFilter.value;
+  renderUsers(
+    users.filter(
+      (u) =>
+        (u.name + " " + u.email).toLowerCase().includes(term) &&
+        (role === "todos" || u.role === role),
+    ),
+  );
+}
+document.querySelector("#totalUsers").textContent = users.length;
+document.querySelector("#activeUsers").textContent = users.length;
+document.querySelector("#adminUsers").textContent = users.filter(
+  (u) => u.role === "Administrador",
+).length;
+userSearch.addEventListener("input", filterUsers);
+roleFilter.addEventListener("change", filterUsers);
+document
+  .querySelector("#newUser")
+  .addEventListener("click", () =>
+    alert("O cadastro de usuário será adicionado na próxima etapa."),
+  );
+renderUsers();

@@ -1,232 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Processos | Dashboard</title>
 
-
     <!-- CSS GLOBAL -->
-    <link
-        rel="stylesheet"
-        href="css/global.css"
-    >
+    <link rel="stylesheet" href="css/global.css" />
 
     <!-- CSS DA PÁGINA -->
-    <link
-        rel="stylesheet"
-        href="css/processos.css"
-    >
-
+    <link rel="stylesheet" href="css/processos.css" />
 
     <!-- FONT AWESOME -->
 
     <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    >
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </head>
 
-</head>
-
-
-<body>
-
+  <body>
     <div class="dashboard">
+      <!-- SIDEBAR -->
 
+      <aside class="sidebar">
+        <div class="logo">
+          <i class="fa-solid fa-layer-group"></i>
 
-        <!-- SIDEBAR -->
+          <span>Processos</span>
+        </div>
 
-        <aside class="sidebar">
+        <nav class="menu">
+          <a href="index.html" class="menu-item">
+            <i class="fa-solid fa-chart-line"></i>
 
-            <div class="logo">
+            <span>Dashboard</span>
+          </a>
 
-                <i class="fa-solid fa-layer-group"></i>
+          <a href="processos.html" class="menu-item active">
+            <i class="fa-solid fa-folder"></i>
 
-                <span>Processos</span>
+            <span>Processos</span>
+          </a>
 
+          <a href="usuarios.html" class="menu-item">
+            <i class="fa-solid fa-users"></i>
+
+            <span>Usuários</span>
+          </a>
+
+          <a href="setores.html" class="menu-item">
+            <i class="fa-solid fa-building"></i>
+
+            <span>Setores</span>
+          </a>
+
+          <a href="relatorios.html" class="menu-item">
+            <i class="fa-solid fa-chart-pie"></i>
+
+            <span>Relatórios</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <a href="configuracoes.html" class="menu-item">
+            <i class="fa-solid fa-gear"></i>
+
+            <span>Configurações</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- CONTEÚDO -->
+
+      <main class="main-content">
+        <header class="page-header">
+          <div>
+            <h1>Processos</h1>
+
+            <p>Gerencie e acompanhe todos os processos.</p>
+          </div>
+
+          <button class="primary-button" id="novoProcessoBtn">
+            <i class="fa-solid fa-plus"></i>
+
+            Novo Processo
+          </button>
+        </header>
+
+        <!-- CONTEÚDO DOS PROCESSOS -->
+
+        <section class="process-management">
+          <div class="process-toolbar">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+
+              <input
+                type="text"
+                id="processSearchInput"
+                placeholder="Pesquisar processos..." />
             </div>
 
+            <select id="processStatusFilter">
+              <option value="todos">Todos os status</option>
 
-            <nav class="menu">
+              <option value="Em andamento">Em andamento</option>
 
-                <a
-                    href="index.html"
-                    class="menu-item"
-                >
-                    <i class="fa-solid fa-chart-line"></i>
+              <option value="Pendente">Pendente</option>
 
-                    <span>Dashboard</span>
-                </a>
+              <option value="Concluído">Concluído</option>
+            </select>
+          </div>
 
-
-                <a
-                    href="processos.html"
-                    class="menu-item active"
-                >
-                    <i class="fa-solid fa-folder"></i>
-
-                    <span>Processos</span>
-                </a>
-
-
-                <a
-                    href="usuarios.html"
-                    class="menu-item"
-                >
-                    <i class="fa-solid fa-users"></i>
-
-                    <span>Usuários</span>
-                </a>
-
-
-                <a
-                    href="setores.html"
-                    class="menu-item"
-                >
-                    <i class="fa-solid fa-building"></i>
-
-                    <span>Setores</span>
-                </a>
-
-
-                <a
-                    href="relatorios.html"
-                    class="menu-item"
-                >
-                    <i class="fa-solid fa-chart-pie"></i>
-
-                    <span>Relatórios</span>
-                </a>
-
-            </nav>
-
-
-            <div class="sidebar-footer">
-
-                <a
-                    href="configuracoes.html"
-                    class="menu-item"
-                >
-                    <i class="fa-solid fa-gear"></i>
-
-                    <span>Configurações</span>
-                </a>
-
-            </div>
-
-        </aside>
-
-
-        <!-- CONTEÚDO -->
-
-        <main class="main-content">
-
-
-            <header class="page-header">
-
-                <div>
-
-                    <h1>
-                        Processos
-                    </h1>
-
-                    <p>
-                        Gerencie e acompanhe todos os processos.
-                    </p>
-
-                </div>
-
-
-                <button
-                    class="primary-button"
-                    id="novoProcessoBtn"
-                >
-
-                    <i class="fa-solid fa-plus"></i>
-
-                    Novo Processo
-
-                </button>
-
-            </header>
-
-
-            <!-- CONTEÚDO DOS PROCESSOS -->
-
-            <section class="process-management">
-
-                <div class="process-toolbar">
-
-                    <div class="search-box">
-
-                        <i class="fa-solid fa-magnifying-glass"></i>
-
-                        <input
-                            type="text"
-                            id="processSearchInput"
-                            placeholder="Pesquisar processos..."
-                        >
-
-                    </div>
-
-
-                    <select id="processStatusFilter">
-
-                        <option value="todos">
-                            Todos os status
-                        </option>
-
-                        <option value="Em andamento">
-                            Em andamento
-                        </option>
-
-                        <option value="Pendente">
-                            Pendente
-                        </option>
-
-                        <option value="Concluído">
-                            Concluído
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <div
-                    class="process-list"
-                    id="processList"
-                >
-
-                    <!-- JavaScript -->
-
-                </div>
-
-            </section>
-
-
-        </main>
-
+          <div class="process-list" id="processList">
+            <!-- JavaScript -->
+          </div>
+        </section>
+      </main>
     </div>
-
 
     <!-- JAVASCRIPT GLOBAL -->
 
     <script src="js/global.js"></script>
 
-
     <!-- JAVASCRIPT DA PÁGINA -->
 
     <script src="js/processos.js"></script>
-
-</body>
-
+  </body>
 </html>
